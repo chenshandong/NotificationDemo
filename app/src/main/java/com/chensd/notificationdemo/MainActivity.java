@@ -135,4 +135,22 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * 用户返回
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
+            if (!Settings.canDrawOverlays(this)) {
+                Toast.makeText(MainActivity.this, "权限授予失败，无法开启悬浮窗", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MainActivity.this, "权限授予成功！", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+
 }
